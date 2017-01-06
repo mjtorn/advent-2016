@@ -27,10 +27,5 @@ public class Adv01P1 extends Adv01 {
 
         return Math.abs(x) + Math.abs(y);
     }
-
-    public static void main(String[] args) {
-        Adv01P1 adv = new Adv01P1(args[0]);
-        adv.run();
-    }
 }
 
