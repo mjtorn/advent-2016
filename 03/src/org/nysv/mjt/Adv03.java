@@ -10,26 +10,33 @@ import java.nio.file.*;
 public abstract class Adv03 {
     protected Path path;
 
-    protected List<Triangle> getTriangles() {
+    protected ArrayList<String[]> getSides() {
         System.out.println(path);
-        ArrayList<Triangle> triangles = new ArrayList<Triangle>();
+        ArrayList<String[]> sides = new ArrayList<String[]>();
+
         try {
             List<String> lines = Files.readAllLines(path);
 
             for (String line : lines) {
                 String[] splitLine = line.split("\\s+");
-
-                int s1 = Integer.parseInt(splitLine[1]);
-                int s2 = Integer.parseInt(splitLine[2]);
-                int s3 = Integer.parseInt(splitLine[3]);
-
-                Triangle t = new Triangle(s1, s2, s3);
-                System.out.println(t.toString());
-                triangles.add(t);
+                sides.add(splitLine);
             }
-            return triangles;
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        return sides;
+    }
+
+    protected List<Triangle> getTriangles(ArrayList<String[]> sides) {
+        ArrayList<Triangle> triangles = new ArrayList<Triangle>();
+        for (String[] side : sides) {
+            int s1 = Integer.parseInt(side[1]);
+            int s2 = Integer.parseInt(side[2]);
+            int s3 = Integer.parseInt(side[3]);
+
+            Triangle t = new Triangle(s1, s2, s3);
+            System.out.println(t.toString());
+            triangles.add(t);
         }
         return triangles;
     }
