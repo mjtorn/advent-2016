@@ -33,5 +33,13 @@ public abstract class Adv03 {
         }
         return triangles;
     }
+
+    protected long solve() {
+        List<Triangle> triangles = getTriangles(getSides());
+        System.out.println(triangles.size());
+        long count = triangles.stream().filter((Triangle t) -> t.isPossible()).count();
+        System.out.println(count);
+        return count;
+    }
 }
 
