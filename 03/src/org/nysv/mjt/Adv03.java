@@ -7,12 +7,8 @@ import java.util.List;
 import java.nio.file.*;
 
 
-public class Adv03 {
-    private Path path;
-
-    public Adv03(String fsPath) {
-        path = Paths.get(fsPath);
-    }
+public abstract class Adv03 {
+    protected Path path;
 
     protected List<Triangle> getTriangles() {
         System.out.println(path);
@@ -36,19 +32,6 @@ public class Adv03 {
             e.printStackTrace();
         }
         return triangles;
-    }
-
-    protected long solve() {
-        List<Triangle> triangles = getTriangles();
-        System.out.println(triangles.size());
-        long count = triangles.stream().filter((Triangle t) -> t.isPossible()).count();
-        System.out.println(count);
-        return count;
-    }
-
-    public static void main(String[] args) {
-        Adv03 adv = new Adv03(args[0]);
-        adv.solve();
     }
 }
 
