@@ -17,7 +17,7 @@ public class Adv01P2 extends Adv01 {
 
         for (String strEntry : this.strEntries) {
             Entry entry = new Entry(direction, strEntry);
-            System.out.println(entry.asString());
+            System.out.println(entry.toString());
 
             Coordinates coordinates = new Coordinates(x, y);
             coordinates.parseEntry(entry);

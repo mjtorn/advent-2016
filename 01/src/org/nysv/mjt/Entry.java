@@ -26,7 +26,7 @@ public class Entry {
         distance = Integer.parseInt(strEntry.substring(1));
     }
 
-    public String asString() {
+    public String toString() {
         return "{Direction: " + direction + ", Distance: " + distance + "}";
     }
 }
